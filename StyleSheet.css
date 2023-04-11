@@ -36,7 +36,7 @@
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: initial;
+    background-size: none;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
@@ -275,7 +275,7 @@
         -moz-animation: fadeIn 3s;
         -o-animation: fadeIn 3s;
     }
-l
+
     .frontpage-intro h2 {
         font-family: Tahoma;
         text-transform: uppercase;
@@ -394,34 +394,6 @@ l
     }
 }
 
-/*!* INFINITY symbol curve vector *!*/
-
-/*.infinity {*/
-/*    position: relative;*/
-/*    width: 212px;*/
-/*    height: 100px;*/
-/*    box-sizing: content-box;*/
-/*}*/
-/*.infinity:before,*/
-/*.infinity:after {*/
-/*    content: "";*/
-/*    box-sizing: content-box;*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    width: 60px;*/
-/*    height: 60px;*/
-/*    border: 20px solid red;*/
-/*    border-radius: 50px 50px 0 50px;*/
-/*    transform: rotate(-45deg);*/
-/*}*/
-/*.infinity:after {*/
-/*    left: auto;*/
-/*    right: 0;*/
-/*    border-radius: 50px 50px 50px 0;*/
-/*    transform: rotate(45deg);*/
-/*}*/
-
 /* h1 element for title, color change and outline */
 .WelcomeBannerHeaderText {
     padding: 5px;
@@ -452,18 +424,23 @@ l
     opacity: 0.1;
     z-index: 1;
 }
+
+@media screen and (min-width:1500px) {
+    .nav-bar-desktop nav {
+        width: 100%;
+    }
+
     /* navigation */
-    .nav_desktop_default_position {
+    .nav-bar-desktop nav a {
         text-transform: uppercase;
         text-decoration: none;
         font-family: Tahoma;
         vertical-align: middle;
-        align-content: center;
         text-align: center;
         display: inline-block;
         padding: 10px;
         font-size: 20px;
-        height: 1.5em;
+        height: 40px;
         width: 100px;
         border-style: solid;
         text-shadow: 1px 1px 1px rgb(0, 0, 0);
@@ -471,11 +448,6 @@ l
         border-width: 1.5px;
         color: rgb(255, 255, 255);
         background-color: rgba(0, 0, 0, 0.02);
-        /*background-color: #01447e;*/
-        border-style: hidden;
-        border-radius: 15px;
-        position: relative;
-        left:50em;
     }
 
     .nav-bar-desktop nav a:hover {
@@ -483,59 +455,28 @@ l
         transition-duration: .5s;
         color: white;
     }
-
-.home_nav_entity {
-    position: absolute;
-    top: 20em;
-    }
-
-/* phone resolution */
-@media screen and (max-width:768px) {
-    .nav-bar-desktop {
-        display: none;
-    }
-    .nav_desktop_default_position {
-        display:none;
-    }
-    .home_nav_entity{
-        display:none;
-    }
 }
-/* tablet resolution */
-@media screen and (max-width:991px) {
-    .nav-bar-desktop {
+
+/* hide nav bar when not on high enough resolution */
+@media screen and (max-width:1500px) {
+    .nav-bar-desktop nav {
         display: none;
-    }
-    .nav_desktop_default_position {
-        display:none;
-    }
-    .home_nav_entity{
-        display:none;
     }
 }
 
-@media screen and (min-width:1540px) {
+@media screen and (min-width:1500px) {
     .mobile-nav {
         display: none;
     }
 }
 
-@media screen and (max-width:1540px) {
+@media screen and (max-width:1500px) {
     .mobile-nav {
         overflow: hidden;
         background-color: #333;
         /* height: 4em; */
         transition: all .5s ease-in-out;
         z-index: 999;
-    }
-    .nav-bar-desktop {
-        display: none;
-    }
-    .nav_desktop_default_position {
-        display:none;
-    }
-    .home_nav_entity{
-        display:none;
     }
 
     .mobile-nav a {
@@ -567,7 +508,7 @@ l
 
 }
 
-/*  navigation headline for current page */
+/*  navigation headline for currrent page */
 .page-headline {
     width: 400px;
     padding: 10px;
@@ -618,9 +559,9 @@ l
     text-transform: uppercase;
 }
 
-/*  content box onClick effect only for desktop-versions */
+/*  content box hover effect only for desktop-versions */
 @media screen and (min-width:1500px) {
-    .content-box:active {
+    .content-box:hover {
         background-color: rgb(136, 170, 255);
         border-style: solid;
         border-color: rgb(137, 156, 203);
@@ -648,7 +589,7 @@ l
         transition: all .5s ease-in-out;
     }
 
-    .content-card:active {
+    .content-card:hover {
         transition: all .5s ease-in-out;
         width: 450px;
         height: 600px;
@@ -678,19 +619,6 @@ l
 
 .about-me-content {
     text-align: center;
-}
-.about_me_text_field{
-    height: 100px;
-    width:600px;
-    align-content: center;
-    margin:auto;
-    flex-wrap: wrap;
-}
-
-@media screen and (max-width: 1500px){
-    .about_me_text_field {
-        width: 350px;
-    }
 }
 
 .about-me-content img {
@@ -766,6 +694,8 @@ l
     width: 100%;
 }
 
+/* made all of these into grid/container (67 lines down) */
+
 /* Breadcrumbs Styling*/
 .breadcrumb {
     position: absolute;
@@ -796,7 +726,7 @@ ul.breadcrumb li {
     font-size: 18px;
 }
 
-/* underline text on hover*/
+/* Adding underline to text on hover*/
 ul.breadcrumb li a {
 
     text-decoration: none;
@@ -807,7 +737,7 @@ ul.breadcrumb li a:hover {
     text-decoration: underline;
 }
 
-/* Go to page top */
+/* Go to the top of the page button*/
 .to-page-top {
     position: fixed;
     left: 1600px;
@@ -837,8 +767,7 @@ ul.breadcrumb li a:hover {
 }
 
 
-
-/* Contact form
+/* Contact form 
 .ContactForm {
 }
     */
